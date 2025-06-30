@@ -1,0 +1,14 @@
+services:
+  mqtt-broker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"
+    networks:
+      - mqtt-shared
+
+networks:
+  mqtt-shared:
+    driver: bridge
